@@ -1,0 +1,422 @@
+.navbar {
+    background-color: white;
+    border-bottom: 1px solid #eee;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    
+  }
+
+  .navbar-brand {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-right: 3rem;
+  }
+
+  .navbar-nav {
+    gap: 2rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 1rem;
+    color: black !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+/* .active{
+    border-bottom: 3px solid #950045 !important;
+} */
+/* .nav-link:hover ,.active:hover{
+    border-bottom: 3px solid #00BCE3 !important;
+} */
+  .navbar-icons {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .cart-badge {
+    position: relative;
+  }
+
+  .cart-badge::after {
+    content: '2';
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: black;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.7rem;
+  }
+
+  .gradient-text {
+    background: linear-gradient(90deg, #00BCE3, #950045);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  @keyframes slideInRightToLeft {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+.carousel-inner{
+    height: 700px;
+}
+  .carousel-caption-one {
+    top: 200px;
+    right: -300px !important;
+    left: auto;
+    bottom: auto;
+    /* text-align: right; */
+    position: absolute;
+    animation: slideInRightToLeft 1s ease-out;
+  }
+  .carousel-caption-one h5{
+    font-size: 100px;
+  }
+  .carousel-caption-one p{
+    font-size: 20px;
+  }
+  .carousel-caption-two {
+    top: 250px;
+    left: -350px !important;
+    /* left: auto; */
+    bottom: auto;
+    /* text-align: right; */
+    position: absolute;
+    animation: slideInRightToLeft 1s ease-out;
+  }
+  .carousel-caption-two h5{
+    font-size: 100px;
+  }
+  .carousel-caption-two p{
+    font-size: 20px;
+  }
+
+  .custom-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    padding: 40px;
+  }
+
+  .custom-col {
+    flex: 1 1 calc(33.333% - 20px);
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    max-width: calc(33.333% - 20px);
+  }
+
+  .custom-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+
+  .custom-card-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+  }
+  
+  .custom-card-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    transition: opacity 0.5s ease;
+  }
+  
+  .default-img {
+    opacity: 1;
+    z-index: 1;
+  }
+  
+  .hover-img {
+    opacity: 0;
+    z-index: 2;
+  }
+  
+  .custom-card:hover .default-img {
+    opacity: 0;
+  }
+  
+  .custom-card:hover .hover-img {
+    opacity: 1;
+  }
+  
+
+  .custom-card-overlay {
+    position: absolute;
+    bottom: 0;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0));
+    color: white;
+    width: 100%;
+    z-index: 3;
+  }
+
+  .custom-collection-label {
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    opacity: 0.8;
+  }
+
+  .custom-card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.3;
+  }
+  .how-it-works {
+    text-align: center;
+    padding: 60px 20px;
+    /* background: linear-gradient(to bottom, #fff7e6, white); */
+  }
+  
+  .how-title {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 40px;
+  }
+  
+  .how-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+  
+  .how-card {
+    width: 220px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+  }
+  
+  .how-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .how-icon {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    padding: 10px;
+  }
+  
+  .how-card h3 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .how-card p {
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  .daily-deal {
+    text-align: center;
+    margin: 50px 0;
+  }
+  
+  .daily-deal h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #222;
+  }
+  
+  .daily-deal .divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .daily-deal .divider span {
+    flex: 1;
+    height: 4px;
+    background-color: #950045;
+    max-width: 100px;
+  }
+  
+  .daily-deal .divider i {
+    margin: 0 15px;
+    font-size: 30px;
+
+  }
+  
+  .daily-deal p {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  @media (max-width: 768px) {
+    .custom-col {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
+  }
+
+
+    .sidebar {
+      width: 250px !important;
+      background: #d4eaff;
+      border-radius: 20px;
+      padding: 1.5rem 1rem;
+    }
+
+    .sidebar h5 {
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .sidebar i {
+      font-size: 1rem;
+    }
+
+    .sidebar a {
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+.carousel-card {
+      width: 240px;
+      border-radius: 16px;
+      border: 1px solid #e0e0e0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      overflow: hidden;
+      background: #fff;
+      position: relative;
+    }
+
+    .carousel-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 16px 16px 0 0;
+    }
+
+    .carousel-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 12px;
+      padding: 4px 8px;
+      border-radius: 8px;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    .most-tried {
+      background-color: #1c86ff;
+    }
+
+    .carousel-body {
+      padding: 10px 14px 6px;
+    }
+
+    .carousel-body h6 {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .carousel-body p {
+      font-size: 14px;
+      color: #555;
+      margin: 0 0 6px;
+    }
+
+    .carousel-footer {
+      padding: 0 14px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .rating {
+      font-size: 13px;
+      background: #ffe49d;
+      padding: 2px 6px;
+      border-radius: 8px;
+      font-weight: 600;
+    }
+
+    .ml-badge {
+      font-size: 13px;
+      background: #f0f0f0;
+      padding: 2px 6px;
+      border-radius: 8px;
+      margin-left: 5px;
+    }
+
+    .trial-points {
+      font-size: 13px;
+      font-weight: 700;
+      background: #e6f0ff;
+      padding: 4px 8px;
+      border-radius: 12px;
+    }
+
+    .try-btn {
+      font-size: 14px;
+      font-weight: 600;
+      background-color: #007bff;
+      color: white;
+      padding: 4px 14px;
+      border-radius: 20px;
+      border: none;
+    }
+
+    .try-btn:hover {
+      background-color: #0056b3;
+    }
+
+    .heart-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 20px;
+      color: #555;
+    }
+
+    .counter-section {
+      background-color: #00c8e5;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      margin: 50px 0;
+    }
+    .counter-number {
+      font-size: 4rem;
+      font-weight: bold;
+    }
+    .counter-label {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit a Product</title>
+  <style>
+    .container {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    .heading {
+      margin-bottom: 1rem;
+    }
+
+    .form-label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    .form-input, .form-select {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.3rem;
+    }
+
+    .radio-options {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .radio-options .radio-label {
+      font-weight: normal;
+    }
+
+    .error-message {
+      color: red;
+      display: none;
+    }
+
+    .price-group {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-end;
+    }
+
+    .price-column {
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+ <div class="container">
+    <h2 class="heading">Submit a Product</h2>
+    <form id="productForm">
+      <label for="productName" class="form-label">Product Name</label>
+      <input type="text" id="productName" class="form-input" name="productName" />
+
+      <label class="form-label">Product Type</label>
+      <div class="radio-options">
+        <label class="radio-label"><input type="radio" name="productType" value="Perfume" /> Perfume</label>
+        <label class="radio-label"><input type="radio" name="productType" value="Attar" /> Attar</label>
+        <label class="radio-label"><input type="radio" name="productType" value="Essence Oil" /> Essence Oil</label>
+      </div>
+
+      <label class="form-label">Product Class</label>
+      <div class="radio-options">
+        <label class="radio-label"><input type="radio" name="productClass" value="Original" /> Original</label>
+        <label class="radio-label"><input type="radio" name="productClass" value="Inspired" /> Inspired</label>
+      </div>
+
+      <label class="form-label">Gender</label>
+      <div class="radio-options">
+        <label class="radio-label"><input type="radio" name="gender" value="Male" /> Male</label>
+        <label class="radio-label"><input type="radio" name="gender" value="Female" /> Female</label>
+        <label class="radio-label"><input type="radio" name="gender" value="Unisex" /> Unisex</label>
+      </div>
+
+      <label for="productSize" class="form-label">Product Size (ML)</label>
+      <select id="productSize" class="form-select">
+        <option value="">Please Select</option>
+        <option value="5">5 ML</option>
+        <option value="10">10 ML</option>
+        <option value="20">20 ML</option>
+        <option value="25">25 ML</option>
+        <option value="30">30 ML</option>
+        <option value="50">50 ML</option>
+        <option value="100">100 ML</option>
+      </select>
+
+      <label class="form-label">Pricing</label>
+      <div class="price-group">
+        <div class="price-column">
+          <label for="costPrice" class="form-label">Cost Price (INR)</label>
+          <div>₹ <input type="number" id="costPrice" class="form-input" min="0" /></div>
+        </div>
+
+        <div class="price-column">
+          <label for="margin" class="form-label">Margin (%)</label>
+          <input type="number" id="margin" class="form-input" min="20" max="300" />
+          <span id="marginError" class="error-message">Margin must be between 20% and 300%</span>
+        </div>
+
+        <div class="price-column">
+          <label for="total" class="form-label">Total (Cost + Margin)</label>
+          <input type="text" id="total" class="form-input" readonly />
+        </div>
+      </div>
+
+      <label for="discount" class="form-label">Discount (%)</label>
+      <select id="discount" class="form-select">
+        <option value="">Please Select</option>
+        <option value="10">10%</option>
+        <option value="20">20%</option>
+        <option value="30">30%</option>
+        <option value="40">40%</option>
+        <option value="50">50%</option>
+      </select>
+
+      <label for="units" class="form-label">Units</label>
+      <input type="number" id="units" class="form-input" min="1" />
+
+      <label for="sellingPrice" class="form-label">Selling Price (INR)</label>
+      <input type="text" id="sellingPrice" class="form-input" readonly />
+
+      <label for="seller" class="form-label">Seller Name</label>
+      <select id="seller" class="form-select">
+        <option value="">Please Select</option>
+        <option value="Seller A">Seller A</option>
+        <option value="Seller B">Seller B</option>
+        <option value="Seller C">Seller C</option>
+      </select>
+
+      <label for="displayCost" class="form-label">Display Cost (INR)</label>
+      <input type="text" id="displayCost" class="form-input" readonly />
+
+      <label for="coupons" class="form-label">Coupons</label>
+      <input type="text" id="coupons" class="form-input" />
+
+      <br><br>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    const costPriceInput = document.getElementById('costPrice');
+    const marginInput = document.getElementById('margin');
+    const discountSelect = document.getElementById('discount');
+    const sellingPriceInput = document.getElementById('sellingPrice');
+    const displayCostInput = document.getElementById('displayCost');
+    const marginError = document.getElementById('marginError');
+    const totalInput = document.getElementById('total');
+
+    function updatePrices() {
+      const costPrice = parseFloat(costPriceInput.value);
+      const margin = parseFloat(marginInput.value);
+      const discount = parseFloat(discountSelect.value);
+
+      if (isNaN(costPrice) || isNaN(margin) || margin < 20 || margin > 300) {
+        sellingPriceInput.value = '';
+        displayCostInput.value = '';
+        totalInput.value = '';
+        marginError.style.display = 'block';
+        return;
+      }
+
+      marginError.style.display = 'none';
+      const marginValue = costPrice * (margin / 100);
+      const priceWithMargin = costPrice + marginValue;
+
+      totalInput.value = priceWithMargin.toFixed(2);
+
+      let discountedPrice = priceWithMargin;
+
+      if (!isNaN(discount)) {
+        discountedPrice = priceWithMargin - (priceWithMargin * (discount / 100));
+      }
+
+      sellingPriceInput.value = discountedPrice.toFixed(2);
+      const displayCost = costPrice + (costPrice * ((margin * 2) / 100));
+      displayCostInput.value = displayCost.toFixed(2);
+    }
+
+    marginInput.addEventListener('input', updatePrices);
+    costPriceInput.addEventListener('input', updatePrices);
+    discountSelect.addEventListener('change', updatePrices);
+  </script>
+</body>
+</html>
