@@ -1,1 +1,182 @@
+body { font-family: 'Segoe UI', sans-serif; }
+    #sidebar { 
+        min-height: 100vh; 
+        min-width: 30vh;
+        position: relative;
+    }
+    @media (max-width: 768px) {
+      #sidebar {
+        position: absolute;
+        z-index: 1000;
+        width: 250px;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+      }
+      #sidebar.active {
+        transform: translateX(0);
+      }
+    }
+    .container {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+.status-card {
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      padding: 20px;
+      text-align: left;
+      transition: 0.3s;
+      background: #fdfdfd;
+    }
 
+    .status-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .status-icon {
+      font-size: 22px;
+      color: #ff6600;
+    }
+
+    .status-title {
+      font-weight: 500;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .status-value {
+      font-size: 24px;
+      font-weight: bold;
+      color: #444;
+    }
+    .heading {
+      margin-bottom: 1rem;
+    }
+
+    .form-label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    .form-input, .form-select {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.3rem;
+    }
+
+    .radio-options {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .radio-options .radio-label {
+      font-weight: normal;
+    }
+
+    .error-message {
+      color: red;
+      display: none;
+    }
+
+    .price-group {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-end;
+    }
+
+    .price-column {
+      flex: 1;
+    }
+    .form-row {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.form-group {
+  flex: 1;
+}
+
+.form-label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.form-select {
+  width: 100%;
+  padding: 0.5rem;
+}
+.flex-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 2rem;
+    flex-wrap: wrap; /* For responsive wrapping on small screens */
+  }
+
+  .form-section {
+    flex: 2;
+    min-width: 300px;
+  }
+
+  .card-section {
+    flex: 1;
+    min-width: 280px;
+  }
+
+  .card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  .card-img-top {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .card-body {
+    padding: 1rem;
+  }
+
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+
+  .price {
+    color: green;
+    font-weight: bold;
+    margin-right: 0.5rem;
+  }
+
+  .original-price {
+    text-decoration: line-through;
+    color: #999;
+  }
+
+  .star {
+    color: gold;
+    margin-right: 4px;
+  }
+
+  .btn-cart {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin-top: 0.5rem;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  .btn-cart:hover {
+    background-color: #0056b3;
+  }
